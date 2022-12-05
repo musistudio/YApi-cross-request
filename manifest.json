@@ -1,0 +1,41 @@
+{
+    "manifest_version": 3,
+    "name": "YApi Tester",
+    "description": "YApi接口自动化测试",
+    "version": "1.0",
+    "action": {
+        "default_popup": "hello.html",
+        "default_icon": "icon.png"
+    },
+    "background": {
+        "service_worker": "background.js"
+    },
+    "permissions": [
+        "https://*/",
+        "http://*/",
+        "chrome-extension://*/",
+        "*.js"
+    ],
+    "host_permissions": [
+        "https://*/",
+        "http://*/",
+        "chrome-extension://*/",
+        "*.js"
+    ],
+    "content_scripts": [
+        {
+            "matches": [
+                "*://yapi.xbongbong.com/*"
+            ],
+            "js": [
+                "content-script.js"
+            ]
+        }
+    ],
+    "web_accessible_resources": [
+        {
+            "resources": ["inject.js"],
+            "matches": ["*://yapi.xbongbong.com/*"]
+        }
+    ]
+}
